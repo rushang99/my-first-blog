@@ -1,0 +1,35 @@
+<html>
+	<body>
+		<p align="center" size=12>
+	  <font size=12>Sensor data</font>
+	</p>
+	</body><br><br><br>
+	<form method="POST" action="/">
+		<p align="center">
+		{% csrf_token %}
+		From:
+		<input type="date" name="From">
+		To:
+		<input type="date" name="To">
+		<br>
+		<br>
+		<input type="submit" value="Submit" align="center">
+	</p>
+	</form>
+		<p align="center">
+    	TIMESTAMP          DATA
+    </p>
+	<div>
+		{% for post in posts %}
+    <div>
+
+    	<p align="center">
+
+        {{ post.created_date }}
+        {{ post.text|linebreaksbr }}
+    </p>
+    </div>
+	{% endfor %}
+	</div>
+	
+</html>
